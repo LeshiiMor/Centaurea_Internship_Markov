@@ -1,0 +1,51 @@
+﻿@model TicketShop.IdentityServer.VIewModels.RegisterVIewModel
+@{ 
+    Layout = "_Layout";
+}
+<div>
+    <div class="reg-div">
+        <h1 class="text-center">Регистрация</h1>
+        <div class="validation m-3 text-center" asp-validation-summary="ModelOnly"></div>
+        <form asp-controller="Auth" method="post">
+            <input type="hidden" asp-for="returnUrl" />
+            <div class="m-3">
+                <input type="text" asp-for="FirstName" class="form-control" placeholder="Имя" />
+                <span asp-validation-for="FirstName"></span>
+            </div>
+            <div class="m-3">
+                <input type="text" asp-for="LastName" class="form-control" placeholder="Фамилия" />
+                <span asp-validation-for="LastName"></span>
+            </div>
+            <div class="m-3">
+                <input type="text" asp-for="Phone" class="form-control" placeholder="Мобильный телефон" />
+                <span asp-validation-for="Phone"></span>
+            </div>
+            <div class="m-3">
+                <input type="text" asp-for="Email" class="form-control" placeholder="Email" />
+                <span asp-validation-for="Email"></span>
+            </div>
+            <hr />
+            <div class="m-3">
+                <div>
+                    <input type="text" asp-for="Username" class="form-control" placeholder="Логин" />
+                    <span asp-validation-for="Username"></span>
+                </div>
+            </div>
+            <div class="m-3">
+                <div>
+                    <input type="password" asp-for="Password" class="form-control" placeholder="Пароль" />
+                    <span asp-validation-for="Password"></span>
+                </div>
+                <div class="mt-2">
+                    <input type="password" asp-for="ReentryPassword" class="form-control" placeholder="Повтор пароля" />
+                    <span asp-validation-for="ReentryPassword"></span>
+                </div>
+            </div>
+            <div class="m-3 text-center">
+                <button class="btn btn-success rounded-pill mb-3">GO</button><br />
+                <a asp-controller="Auth" asp-action="Login" asp-route-returnUrl="@Model.returnUrl" class="text-dark">Назад</a>
+            </div>
+        </form>
+    </div>
+    
+</div>

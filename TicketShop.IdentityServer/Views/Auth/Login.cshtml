@@ -1,0 +1,23 @@
+﻿@model TicketShop.IdentityServer.VIewModels.LoginViewModel
+@{ 
+    Layout = "_Layout";
+}
+<form method="post" asp-controller="Auth" asp-action="Login" class="login-form">
+    <h1 class="m-3 text-center">Добро пожаловать!</h1>
+    <div class="validation m-3 text-center" asp-validation-summary="ModelOnly"></div>
+    <input type="hidden" asp-for="ReturnUrl" />
+    <div class="mb-3">
+        <label for="lgnInp" class="form-label">Логин</label>
+        <input type="text" class="form-control" id="lgnInp" asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
+    </div>
+    <div class="mb-3">
+        <label for="pasInp" class="form-label">Пароль</label>
+        <input type="password" class="form-control" id="pasInp" asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div class="mb-3 text-center">
+        <button class="btn btn-success rounded-pill mb-2">Войти</button><br />
+        <a asp-controller="Auth" asp-action="Register" asp-route-returnUrl="@Model.ReturnUrl" class="text-dark">Создать аккаунт</a>
+    </div>
+</form>

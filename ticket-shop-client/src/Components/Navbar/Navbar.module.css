@@ -1,0 +1,47 @@
+.navbar
+{
+    border: 1px solid teal;
+    width: 100%;
+    height: 65px;
+    background-color: teal;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+}
+.navbarBrand{
+    margin: 0 20px;
+}
+.navbarList{
+    list-style: none;
+    height: 100%;
+    margin: 0;
+    display: flex;
+}
+.navbarItem
+{
+    display: block;
+    height: 65px;
+    padding: 0 20px;
+    text-decoration: none;
+    color:white;
+    line-height: 60px;
+}
+.navbarItem:hover{
+    background-color: darkcyan;
+}
+.navbarButton{
+    width: 90px;
+    height: 30px;
+    border-radius: 25px;
+    border:1px solid white;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    margin: 10px;
+}
+.navbarButton:hover{
+    border:1px solid teal;
+    color: teal;
+    background-color: white;
+}

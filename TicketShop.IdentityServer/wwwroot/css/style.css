@@ -1,0 +1,25 @@
+﻿.login-form
+{
+    width:50%;
+    margin:150px auto;
+}
+.validation-summary-errors
+{
+    color:red;
+}
+.validation-summary-errors li {
+    list-style: none;
+}
+.input-validation-error
+{
+    border:1px solid red;
+}
+.field-validation-error
+{
+    color:red;
+}
+.reg-div
+{
+    width:60%;
+    margin:50px auto;
+}
