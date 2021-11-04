@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace TicketShopAPI.Data.Models.TypeConcerts
 {
-    public class OpenAirType
+    public class OpenAirType:BaseTypeConcert
     {
         public string Headliner { get; set; }
     }

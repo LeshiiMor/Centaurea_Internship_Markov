@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace TicketShopAPI.Data.Models.TypeConcerts
 {
-    public class PartyType
+    public class PartyType:BaseTypeConcert
     {
         public int AgeRage { get; set; }
         public string Topic { get; set; }

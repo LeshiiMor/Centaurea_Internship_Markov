@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace TicketShopAPI.Data.Models
 {
-    public class MusicGroup
+    public class Concert
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string ShortInfo { get; set; }
-        public List<Musician> Musicians { get; set; }
+        public int AmountTickets { get; set; } = 0;
+        public DateTime DateEvent { get; set; }
+        public string Place { get; set; }
     }
 }
