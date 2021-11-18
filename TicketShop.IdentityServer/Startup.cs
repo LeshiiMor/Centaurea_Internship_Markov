@@ -1,3 +1,4 @@
+using IdentityServer4.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -12,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TicketShop.IdentityServer.Data;
 using TicketShop.IdentityServer.Data.Models;
+using TicketShop.IdentityServer.Services;
 
 namespace TicketShop.IdentityServer
 {
@@ -53,12 +55,12 @@ namespace TicketShop.IdentityServer
                 config.Cookie.Name = "IdentityServer.Cookies";
             });
 
-
             services.AddIdentityServer()
                 .AddAspNetIdentity<User>()
                 .AddInMemoryIdentityResources(Configuration.GetIdentityResources())
                 .AddInMemoryClients(Configuration.GetClients())
                 .AddInMemoryApiScopes(Configuration.GetApiScopes())
+                .AddProfileService<ProfileService>()
                 .AddDeveloperSigningCredential();
 
 

@@ -29,25 +29,7 @@ namespace TicketShop.IdentityServer
                     },
                     RedirectUris = {"https://localhost:3000","https://localhost:3000/callback"},
                     PostLogoutRedirectUris ={ "https://localhost:3000" }
-                },
-                // new Client()
-                //{
-                //    ClientId="client_id_ticketshpo_api",
-                //    ClientSecrets={ new Secret("client_secret_ticketshpo_api".ToSha256()) },
-                //    AllowedGrantTypes = GrantTypes.Code,
-                //    AllowedScopes=
-                //    {
-                //        IdentityServerConstants.StandardScopes.OpenId,
-                //        IdentityServerConstants.StandardScopes.Profile
-                //    },
-                //    RedirectUris =
-                //    {
-                //        "https://localhost:44324/signin-oidc"
-                //    },
-                //    RequireConsent = false,
-
-                //    //AlwaysIncludeUserClaimsInIdToken=true
-                //}
+                }
             };
             return clients;
         }
