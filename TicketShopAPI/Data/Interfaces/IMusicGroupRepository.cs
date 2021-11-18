@@ -6,7 +6,7 @@ using TicketShopAPI.Data.Models;
 
 namespace TicketShopAPI.Data.Interfaces
 {
-    interface IMusicGroupRepository
+    public interface IMusicGroupRepository
     {
         bool Create(MusicGroup group);
         bool Delete(MusicGroup group);

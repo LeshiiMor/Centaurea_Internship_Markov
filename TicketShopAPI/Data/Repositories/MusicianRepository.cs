@@ -29,12 +29,17 @@ namespace TicketShopAPI.Data.Repositories
 
         public Musician Get(int id)
         {
-            return (_context.Musicians.Find(id));
+            return (_context.Musicians.Include(p=>p.Group).FirstOrDefault(p=>p.Id == id));
         }
 
         public IEnumerable<Musician> GetAll()
         {
             return _context.Musicians.Include(p=>p.Group);
+        }
+
+        public IEnumerable<Musician> GetByGroup(MusicGroup group)
+        {
+            return _context.Musicians.Include(p => p.Group).Where(p=>p.MusicGroupId == group.Id);
         }
 
         public MusicGroup GetGroup(Musician musician)

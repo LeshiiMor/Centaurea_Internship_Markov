@@ -6,7 +6,7 @@ using TicketShopAPI.Data.Models;
 
 namespace TicketShopAPI.Data.Interfaces
 {
-    interface ITicketRepository
+    public interface ITicketRepository
     {
         bool Create(Ticket ticket);
         bool Delete(Ticket ticket);

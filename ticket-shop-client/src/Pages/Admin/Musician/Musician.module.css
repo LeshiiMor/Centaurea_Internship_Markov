@@ -1,0 +1,68 @@
+.cont
+{
+    background-color: rgb(240,241,245);
+    height: 100%;
+}
+.searchInput
+{
+    width: 150px;
+}
+.contTable{
+    margin-top: 50px;
+    /*border: 1px solid black;*/
+    border-radius: 25px;
+    background-color: white;
+}
+.btnFiltr{
+    border: 1px solid black;
+    width: 120px;
+    height: 30px;
+    background-color: transparent;
+    font-weight: 600;
+}
+.filtrBlock{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.formCreated{
+    margin: auto;
+    width: 50%;
+}
+
+.btnTables{
+    margin-left: 5px;
+    background-color: transparent;
+    border: 1px solid gray;
+    color: gray;
+    opacity: 0.6;
+}
+.btnTables:hover{
+    opacity: 1;
+}
+
+.musician-enter {
+    opacity: 0.01;
+}
+
+.musician-enter.example-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+}
+
+.musician-leave {
+    opacity: 1;
+}
+
+.musician-leave.example-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+}
+.infoBlock{
+    width: 70%;
+    background-color: white;
+    border-radius: 25px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    padding: 20px;
+}

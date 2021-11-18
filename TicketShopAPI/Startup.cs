@@ -13,6 +13,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TicketShopAPI.Data;
+using TicketShopAPI.Data.Interfaces;
+using TicketShopAPI.Data.Repositories;
 
 namespace TicketShopAPI
 {
@@ -30,6 +32,8 @@ namespace TicketShopAPI
                 new MySqlServerVersion(new Version(8, 0, 21)))
             );
 
+            services.AddTransient<IMusicianRepository, MusicianRepository>();
+            services.AddTransient<IMusicGroupRepository, MusicGroupRepository>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(JwtBearerDefaults.AuthenticationScheme,config=> {
                 config.TokenValidationParameters = new TokenValidationParameters
@@ -39,8 +43,10 @@ namespace TicketShopAPI
                 config.Authority = "https://localhost:44353";
                 config.Audience = "TicketShopAPI";
             });
-
-            services.AddControllers();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddControllers().AddNewtonsoftJson(options =>
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                );
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
