@@ -9,7 +9,11 @@ namespace TicketShopAPI.Data.Models
     public class BaseTypeConcert
     {
         public int Id { get; set; }
+
         [Required]
         public string Name { get; set; }
-    }
+
+        public int ConcertId { get; set; }
+        public Concert Concert { get; set; }
+    } 
 }
