@@ -1,0 +1,41 @@
+.navContainer{
+    border:1px solid black;
+    height: 100%;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*align-items: center;*/
+}
+.navList{
+    list-style: none;
+    margin:10px;
+    padding: 0;
+    width: 100%;
+    margin:0;
+}
+.navListLink{
+    text-decoration: none;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+    display: block;
+    color: white;
+}
+.navListLink:hover{
+    cursor: pointer;
+    color: gray;
+}
+.adminCont{
+    position: fixed;
+    height: 100%;
+}
+.maxHeight{
+    height: 100%;
+}
+.zeroPadding{
+    padding: 0;
+}
+.cont{
+    background-color: rgb(240,241,245);
+    height: 100%;
+}

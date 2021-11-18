@@ -1,18 +1,25 @@
-import React, {useEffect} from 'react';
-import {Redirect} from 'react-router-dom'
+import React, {useContext, useEffect} from 'react';
 import AuthService from "../Service/AuthService";
-import {AppBaseUrl} from "../Configuration/Configuration";
+import {AuthContext} from "../Configuration/Configuration";
+import {useHistory} from 'react-router-dom'
 
 const Callback = () => {
-    let authServ = new AuthService()
+    const history = useHistory()
+    const {isAuth,setIsAuth}= useContext(AuthContext)
     useEffect(()=>{
+        let authServ = new AuthService()
         authServ.CallBack().then((user)=>{
-            window.location.href=`${AppBaseUrl}/concert`
+            if(user)
+            {
+                localStorage.setItem('role',user.profile.role)
+                setIsAuth(true)
+            }
+            history.push('/concert')
         })
     },[])
     return (
-        <div>
-            <h1>Call back page</h1>
+        <div className="container">
+            <h1>Еще чуть-чуть...</h1>
         </div>
     );
 };

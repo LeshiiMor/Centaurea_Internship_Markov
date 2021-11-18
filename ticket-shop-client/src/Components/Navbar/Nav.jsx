@@ -1,50 +1,39 @@
-import React, {useEffect, useState} from 'react';
-import classes from './Navbar.module.css'
-import bootClass from '../../Styles/bootstrap/css/bootstrap.css'
+import React, {useContext, useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import AuthService from "../../Service/AuthService";
+import Dropdown from "../UI/Dropdown/Dropdown";
+import {AuthContext} from "../../Configuration/Configuration";
 
 const Nav = () => {
-    let authService = new AuthService()
-    const [isAuth,setIsAuth]=useState(false)
-    useEffect(()=>{
+    const {isAuth, setIsAuth}=useContext(AuthContext)
+    const [nameUser,setNameUser]= useState('')
+    useEffect( ()=>{
+        let authService = new AuthService()
         authService.GetUser().then((user)=>{
-            if(user) setIsAuth(true)
-            else setIsAuth(false)
+            if(user)
+            {
+                setIsAuth(true)
+                setNameUser(user.profile.nameUs)
+            }
+            else {
+                setIsAuth(false)
+            }
         })
-    },[])
+
+    },[isAuth])
     function login() {
+        let authService = new AuthService()
         authService.Login()
     }
     function Logout()
     {
+        let authService = new AuthService()
         authService.Logout()
     }
     return (
-        // <div className={classes.navbar}>
-        //     <div className={classes.navbarBrand}>
-        //         <h2>Ticket Shop</h2>
-        //     </div>
-        //     <div>
-        //         <ul className={classes.navbarList}>
-        //             <Link className={classes.navbarItem} to="/test">Тест</Link>
-        //             <Link className={classes.navbarItem} to="/concert">Концерты</Link>
-        //         </ul>
-        //     </div>
-        //     {isAuth?
-        //         <div>
-        //             User log in <br/>
-        //             <button className={classes.navbarButton} onClick={Logout}>Log out</button>
-        //         </div>
-        //         :
-        //         <div>
-        //             <button className={classes.navbarButton} onClick={login}>Sign in</button>
-        //         </div>
-        //     }
-        // </div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">Ticket shop</a>
+                <Link className="navbar-brand" to="/">Ticket shop</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -52,19 +41,13 @@ const Nav = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link className="nav-link" to="/concert">Концерты</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/test">Test</Link>
+                            <Link className="nav-link active" to="/concert">Концерты</Link>
                         </li>
                     </ul>
                 </div>
                 <div className="d-flex">
                     {isAuth?
-                        <div>
-                            <h5 className="text-white">user log in</h5><br/>
-                            <button className="btn btn-danger rounded-pill" onClick={Logout}>Logout</button>
-                        </div>
+                        <Dropdown username={nameUser} logout={Logout}/>
                         :
                         <button className="btn btn-success rounded-pill m-1" onClick={login}>Войти</button>
                     }
